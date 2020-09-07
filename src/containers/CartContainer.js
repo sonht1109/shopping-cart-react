@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Cart from '../components/Cart';
 import {connect} from 'react-redux';
 import CartItem from '../components/CartItem';
+import * as actions from '../actions/index'
 
 class CartContainer extends Component{
 
@@ -10,7 +11,13 @@ class CartContainer extends Component{
         if(cart.length>0){
             res = cart.map((item, index)=>{
                 return(
-                    <CartItem key={index} cartItem={item}></CartItem>
+                    <CartItem
+                    key={index}
+                    cartItem={item}
+                    onDelete={this.props.onDelete}
+                    onChangeMess={this.props.onChangeMess}
+                    onUpdateQuantity={this.props.onUpdateQuantity}
+                    ></CartItem>
                 )
             })
         }
@@ -44,4 +51,18 @@ const mapState = state=>{
     }
 }
 
-export default connect(mapState, null)(CartContainer);
+const mapDispatch = dispatch => {
+    return{
+        onDelete: (product)=>{
+            dispatch(actions.deleteItem(product));
+        },
+        onChangeMess: (mess)=>{
+            dispatch(actions.changeMess(mess))
+        },
+        onUpdateQuantity: (product, value)=>{
+            dispatch(actions.updateQuantity(product, value))
+        }
+    }
+}
+
+export default connect(mapState, mapDispatch)(CartContainer);

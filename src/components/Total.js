@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 
 class Total extends Component{
+
+    onPurchase = ()=>{
+        console.log('purchase');
+    }
+
     render(){
         return(
             <tr>
@@ -16,7 +21,11 @@ class Total extends Component{
                     </h4>
                 </td>
                 <td colSpan="3">
-                    <button type="button" className="btn btn-primary waves-effect waves-light">Complete purchase
+                    <button
+                    type="button"
+                    className="btn btn-primary waves-effect waves-light"
+                    onClick={this.onPurchase}>
+                        Complete purchase
                         <i className="fa fa-angle-right right"></i>
                     </button>
                 </td>

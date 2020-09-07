@@ -14,3 +14,18 @@ export const changeMess = (mess)=>{
         mess
     }
 }
+
+export const deleteItem = (product)=>{
+    return{
+        type: actionTypes.ACT_REMOVE_FROM_CART,
+        product
+    }
+}
+
+export const updateQuantity = (product, value)=>{
+    return{
+        type: actionTypes.ACT_UPDATE_QUANTITY,
+        product,
+        value
+    }
+}
