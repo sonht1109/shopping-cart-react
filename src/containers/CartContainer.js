@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
 import Cart from '../components/Cart';
-import * as actions from '../actions/index';
 import {connect} from 'react-redux';
 import CartItem from '../components/CartItem';
+import * as Mes from '../constants/Messages';
 
 class CartContainer extends Component{
 
-    mapProductToCart = this.props.cart.map((item, index)=>{
-        return <CartItem key={index} cartItem={item}></CartItem>
-    })
+    mapProductsToCart = (cart)=>{
+        var res = [];
+        if(cart.length>0){
+            res = cart.map((item, index)=>{
+                return(
+                    <CartItem key={index} cartItem={item}></CartItem>
+                )
+            })
+        }
+        return res;
+    }
 
     totalPrice = ()=>{
         var total = 0;
@@ -25,7 +33,7 @@ class CartContainer extends Component{
         var {cart} = this.props;
         return(
             <Cart totalPrice={this.totalPrice}>
-                {this.mapProductToCart}
+                {this.mapProductsToCart(cart)}
             </Cart>
         )
     }
@@ -38,9 +46,6 @@ const mapState = state=>{
 }
 const mapDispatch = dispatch=>{
     return {
-        onAddToCart: (cart)=>{
-            dispatch(actions.addToCart(cart.product, cart.quantity))
-        }
     }
 }
 

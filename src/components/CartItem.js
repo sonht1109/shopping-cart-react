@@ -23,7 +23,7 @@ class CartItem extends Component{
                 </td>
                 <td>$ {cartItem.product.price}</td>
                 <td className="center-on-small-only">
-                    <span className="qty">{cartItem.quantity}</span>
+                    <span className="qty">{cartItem.quantity} </span>
                     <div className="btn-group radio-group" data-toggle="buttons">
                         <label className="btn btn-sm btn-primary
                             btn-rounded waves-effect waves-light">

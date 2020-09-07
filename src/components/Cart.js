@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-import CartItem from './CartItem';
 import Total from './Total';
 
 class Cart extends Component{
 
     render(){
-
         return(
             <section className="section">
                 <div className="table-responsive">

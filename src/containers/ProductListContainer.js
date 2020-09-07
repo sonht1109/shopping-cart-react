@@ -21,7 +21,6 @@ class ProductListContainer extends Component{
 
     render(){
         var {products} = this.props;
-        console.log(this.props);
         return(
             <ProductList>
                 {this.mapProductToTable(products)}
