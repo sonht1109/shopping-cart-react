@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Cart from '../components/Cart';
 import {connect} from 'react-redux';
 import CartItem from '../components/CartItem';
-import * as Mes from '../constants/Messages';
 
 class CartContainer extends Component{
 
@@ -44,9 +43,5 @@ const mapState = state=>{
         cart: state.cart
     }
 }
-const mapDispatch = dispatch=>{
-    return {
-    }
-}
 
-export default connect(mapState, mapDispatch)(CartContainer);
+export default connect(mapState, null)(CartContainer);

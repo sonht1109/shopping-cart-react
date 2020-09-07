@@ -1,5 +1,6 @@
-export const MSG_CART_EMPTY = "Hiện chưa có sản phẩm nào trong giỏ hàng";
-export const MSG_SUCCESSFULL_ADD = "Thêm vào giỏ hàng thành công";
-export const MSG_SUCCESSFULL_UPDATE ="Cập nhật số lượng thành công";
-export const MSG_SUCCESSFULL_REMOVE = "Xoá sản phẩm thành công";
-export const MSG_SUCCESSFULL_PURCHASE = "Cảm ơn quý khách đã mua hàng";
+export const MSG_CART_EMPTY = "Nothing's in cart now !";
+export const MSG_SUCCESSFULL_ADD = "Add to cart successfully !";
+export const MSG_SUCCESSFULL_UPDATE ="Update successfully !";
+export const MSG_SUCCESSFULL_REMOVE = "Delete successfully !";
+export const MSG_SUCCESSFULL_PURCHASE = "Thanks for your purchase !";
+export const MSG_WELCOME = "Welcome to our shop !"

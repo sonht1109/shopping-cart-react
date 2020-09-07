@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import * as mess from '../constants/Messages';
 
 class Product extends Component{
 
     onAddToCart = ()=>{
         this.props.onAddToCart(this.props.product);
+        this.props.onChangeMess(mess.MSG_SUCCESSFULL_ADD);
     }
 
     render(){

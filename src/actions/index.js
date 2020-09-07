@@ -7,3 +7,10 @@ export const addToCart = (product, quantity)=>{
         quantity
     }
 }
+
+export const changeMess = (mess)=>{
+    return{
+        type: actionTypes.CHANGE_MESS,
+        mess
+    }
+}

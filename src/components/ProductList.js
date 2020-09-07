@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Message from './Message';
 import CartContainer from '../containers/CartContainer';
+import MessContainer from '../containers/MessContainer';
 
 class ProductList extends Component{
 
@@ -14,7 +14,7 @@ class ProductList extends Component{
                             {this.props.children}
                         </div>
                     </section>
-                    <Message></Message>
+                    <MessContainer></MessContainer>
                     <CartContainer></CartContainer>
                 </div>
             </main>

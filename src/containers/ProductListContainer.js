@@ -12,7 +12,8 @@ class ProductListContainer extends Component{
                 return <Product
                         key={index}
                         product={product}
-                        onAddToCart={this.props.onAddToCart}>
+                        onAddToCart={this.props.onAddToCart}
+                        onChangeMess={this.props.onChangeMess}>
                         </Product>
             })
         }
@@ -39,6 +40,9 @@ const mapDispatch = dispatch=>{
     return{
         onAddToCart: (product)=>{
             dispatch(actions.addToCart(product, 1))
+        },
+        onChangeMess: (mess)=>{
+            dispatch(actions.changeMess(mess))
         }
     }
 }
