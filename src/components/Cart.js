@@ -3,21 +3,6 @@ import CartItem from './CartItem';
 import Total from './Total';
 
 class Cart extends Component{
-    
-    mapProductToCart = this.props.cart.map((item, index)=>{
-        return <CartItem key={index} cartItem={item}></CartItem>
-    })
-
-    totalPrice = ()=>{
-        var total = 0;
-        var {cart} = this.props;
-        if(cart.length > 0){
-            for(let i=0; i<cart.length; i++){
-                total += cart[i].product.price * cart[i].quantity
-            }
-        }
-        return total;
-    }
 
     render(){
 
@@ -36,8 +21,8 @@ class Cart extends Component{
                             </tr>
                         </thead>
                         <tbody>
-                            {this.mapProductToCart}
-                            <Total price={this.totalPrice()}></Total>
+                            {this.props.children}
+                            <Total price={this.props.totalPrice()}></Total>
                         </tbody>
                     </table>
                 </div>
