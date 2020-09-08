@@ -29,3 +29,9 @@ export const updateQuantity = (product, value)=>{
         value
     }
 }
+
+export const purchase = ()=>{
+    return{
+        type: actionTypes.ACT_PURCHASE
+    }
+}

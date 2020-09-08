@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import * as mess from '../constants/Messages';
 
 class Total extends Component{
 
     onPurchase = ()=>{
-        console.log('purchase');
+        this.props.onPurchase();
+        this.props.onChangeMess(mess.MSG_SUCCESSFULL_PURCHASE);
     }
 
     render(){

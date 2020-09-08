@@ -35,8 +35,8 @@ var reducer = (state = initState, action)=>{
             var {product, value} = action;
             index = findIndexInCart(state, product);
             if(index !== -1){
-                if(state[index].quantity === 0 && value === "1" 
-                || state[index].quantity > 0){
+                if(state[index].quantity === 1 && value === "1" 
+                || state[index].quantity > 1){
                     state[index] = {
                         ...state[index],
                         quantity: state[index].quantity += parseInt(value, 10)
@@ -44,6 +44,9 @@ var reducer = (state = initState, action)=>{
                 }
             }
             return [...state];
+
+        case actionTypes.ACT_PURCHASE:
+            return [];
 
         default:
             return [...state];

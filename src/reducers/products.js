@@ -1,5 +1,3 @@
-import * as actionTypes from '../constants/ActionTypes';
-
 var initState = [
     {
         id: 1, 
@@ -29,7 +27,6 @@ var initState = [
 
 var reducer = (state = initState, action)=>{
     switch(action.actionTypes){
-        
         default:
             return [...state];
     }
