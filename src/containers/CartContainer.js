@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import CartItem from '../components/CartItem';
 import * as actions from '../actions/index'
 import Total from '../components/Total';
+import Product from '../components/Product';
 
 class CartContainer extends Component{
 
@@ -43,9 +44,11 @@ class CartContainer extends Component{
             totalPrice={this.totalPrice}>
                 {this.mapProductsToCart(cart)}
                 <Total
+                cart={cart}
                 price={this.totalPrice()}
-                onPurchase={this.props.onPurchase}
-                onChangeMess={this.props.onChangeMess}>
+                onPurchase={() => this.props.onPurchase(cart)}
+                onChangeMess={this.props.onChangeMess}
+                onUpdateStock={(cart)=>this.props.onUpdateStock(cart)}>
                 </Total>
             </Cart>
         )
@@ -54,7 +57,7 @@ class CartContainer extends Component{
 
 const mapState = state=>{
     return{
-        cart: state.cart
+        cart: state.cart,
     }
 }
 
@@ -71,6 +74,9 @@ const mapDispatch = dispatch => {
         },
         onPurchase: ()=>{
             dispatch(actions.purchase())
+        },
+        onUpdateStock: (cart)=>{
+            dispatch(actions.updateStock(cart))
         }
     }
 }

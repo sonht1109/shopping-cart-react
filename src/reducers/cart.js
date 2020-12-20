@@ -1,5 +1,4 @@
 import * as actionTypes from '../constants/ActionTypes';
-import { useDebugValue } from 'react';
 
 var initState = []
 
@@ -16,9 +15,14 @@ var reducer = (state = initState, action)=>{
                 })
             }
             else{
-                state[index] = {
-                    ...state[index],
-                    quantity: state[index].quantity + 1
+                if(state[index].quantity + 1 <= product.inventory){
+                    state[index] = {
+                        ...state[index],
+                        quantity: state[index].quantity + 1
+                    }
+                }
+                else{
+                    alert("Ban da chon qua so luong !")
                 }
             }
             return [...state];
@@ -35,11 +39,16 @@ var reducer = (state = initState, action)=>{
             var {product, value} = action;
             index = findIndexInCart(state, product);
             if(index !== -1){
-                if(state[index].quantity === 1 && value === "1" 
+                if((state[index].quantity === 1 && value === "1" )
                 || state[index].quantity > 1){
-                    state[index] = {
-                        ...state[index],
-                        quantity: state[index].quantity += parseInt(value, 10)
+                    if(state[index].quantity + parseInt(value, 10) <= product.inventory){
+                        state[index] = {
+                            ...state[index],
+                            quantity: state[index].quantity += parseInt(value, 10)
+                        }
+                    }
+                    else{
+                        alert("Ban da chon vuot qua so luong !")
                     }
                 }
             }

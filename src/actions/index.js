@@ -32,6 +32,13 @@ export const updateQuantity = (product, value)=>{
 
 export const purchase = ()=>{
     return{
-        type: actionTypes.ACT_PURCHASE
+        type: actionTypes.ACT_PURCHASE,
+    }
+}
+
+export const updateStock = (list) => {
+    return {
+        type: actionTypes.UPDATE_STOCK,
+        list
     }
 }

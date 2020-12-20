@@ -201,7 +201,7 @@ class Header extends Component{
                     </ol>
                 </div>
   
-                <ul className="nav navbar-nav nav-flex-icons ml-auto">
+                {/* <ul className="nav navbar-nav nav-flex-icons ml-auto">
                     <li className="nav-item dropdown">
                         <a className="nav-link dropdown-toggle waves-effect waves-light" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
@@ -212,7 +212,7 @@ class Header extends Component{
                             <a className="dropdown-item waves-effect waves-light">Đăng Xuất</a>
                         </div>
                     </li>
-                </ul>
+                </ul> */}
   
             </nav>
   

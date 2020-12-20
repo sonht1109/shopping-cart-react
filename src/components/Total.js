@@ -4,8 +4,14 @@ import * as mess from '../constants/Messages';
 class Total extends Component{
 
     onPurchase = ()=>{
-        this.props.onPurchase();
-        this.props.onChangeMess(mess.MSG_SUCCESSFULL_PURCHASE);
+        if(this.props.price > 0){
+            this.props.onPurchase();
+            this.props.onChangeMess(mess.MSG_SUCCESSFULL_PURCHASE);
+            this.props.onUpdateStock(this.props.cart);
+        }
+        else{
+            this.props.onChangeMess(mess.MSG_CART_EMPTY)
+        }
     }
 
     render(){

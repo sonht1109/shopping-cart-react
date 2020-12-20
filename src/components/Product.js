@@ -3,9 +3,14 @@ import * as mess from '../constants/Messages';
 
 class Product extends Component{
 
-    onAddToCart = ()=>{
-        this.props.onAddToCart(this.props.product);
-        this.props.onChangeMess(mess.MSG_SUCCESSFULL_ADD);
+    onAddToCart = (product)=>{
+        if(product.inventory > 0){
+            this.props.onAddToCart(this.props.product);
+            this.props.onChangeMess(mess.MSG_SUCCESSFULL_ADD);
+        }
+        else{
+            alert("San pham da het so luong !");
+        }
     }
 
     render(){
@@ -29,15 +34,18 @@ class Product extends Component{
                         <p className="card-text">
                             {product.desc}
                         </p>
-                        <div className="card-footer">
+                        <p className="cart-text">
+                            In stock : {product.inventory}
+                        </p>
+                        <div className="card-footer d-flex align-items-center">
                             <span className="left">${product.price}</span>
-                            <span className="right">
+                            <span className="right ml-auto">
                                 <a 
                                 className="btn-floating blue-gradient" 
                                 data-toggle="tooltip" 
                                 data-placement="top"
                                 data-original-title="Add to Cart"
-                                onClick={this.onAddToCart}
+                                onClick={()=>this.onAddToCart(product)}
                                 >
                                     <i className="fa fa-shopping-cart"></i>
                                 </a>
